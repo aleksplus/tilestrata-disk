@@ -31,6 +31,6 @@
     "mocha": "^2.0.1"
   },
   "peerDependencies": {
-    "tilestrata": "*"
+    "tilestrata": "aleksplus/tilestrata#ab78fb0716f6bce0de9517b2784b4c9b8584d375"
   }
 }

@@ -26,14 +26,14 @@ describe('Cache Implementation "disk"', function() {
 	describe('set', function() {
 		it('should store file', function(done) {
 			var server = new TileServer();
-			var req = TileRequest.parse('/layer/3/1/2/tile@2x.png');
+			var req = TileRequest.parse('/layer/3/1/2.pbf');
 			var dir = path.resolve(__dirname, './.tmp/fs' + String(Math.random()).substring(2)) + '/folder';
 			var cache = disk.cache({dir: dir});
 			cache.init(server, function(err) {
 				assert.isFalse(!!err);
 				cache.set(server, req, new Buffer('contents', 'utf8'), {}, function(err) {
 					assert.isFalse(!!err);
-					assert.equal(fs.readFileSync(dir + '/3/1/2/tile@2x.png', 'utf8'), 'contents');
+					assert.equal(fs.readFileSync(dir + '/3/1/2.pbf', 'utf8'), 'contents');
 					done();
 				});
 			});
